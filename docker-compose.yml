@@ -1,0 +1,18 @@
+version: '2'
+
+volumes:
+  nexus-data:
+    driver: local
+
+services:
+  sonatype-nexus-oss:
+    hostname: sonatype-nexus-host
+    image: jizuzquiza/nexus3:3.57.0
+    environment:
+      NEXUS_CONTEXT: nexus
+    volumes:
+      - nexus-data:/nexus-data
+    ports:
+    - 12801:8081
+    - 12802:12802
+    - 12803:12803
